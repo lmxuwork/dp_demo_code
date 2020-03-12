@@ -11,6 +11,8 @@ matplotlib.rcParams['font.sans-serif'] = 'SimHei'
 file = np.load("homework.npz")
 X = file['X']
 d = file['d']
+# X = np.random.normal(0, 4, [1000]) 
+# d = X ** 2 + X + np.random.normal(0, 0.3, [1000]) 
 
 #02 预处理：数据中是否存在异常数据，并进行排除, 空。
 
@@ -47,7 +49,7 @@ def grad_model(x, d, w):
     grad_c = 2 * (y - d) * dy
     return grad_a, grad_b, grad_c
 # 6.1 定义初始值
-w = [0.1, 0.1, 0.1] # w = [a,b，c]
+w = [0.001, 0.001, 0.001] # w = [a,b，c]
 eta = 0.02  # 学习步长 
 batchsize=20 #
 # 6.2 一次输出一个样本：计算单个可训练参数的梯度，并进行迭代
